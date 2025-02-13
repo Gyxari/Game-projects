@@ -523,7 +523,7 @@ sources/0 = SubResource("TileSetAtlasSource_8k25v")
 [node name="TestLvl" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(100, -25)
+position = Vector2(99, -32)
 process_callback = 0
 position_smoothing_enabled = true
 
@@ -532,7 +532,7 @@ tile_map_data = PackedByteArray("AAACAAAAAAAAAAEAAAACAAEAAAAAAAIAAAACAAIAAAAAAAM
 tile_set = SubResource("TileSet_vc5y7")
 
 [node name="Player" parent="." instance=ExtResource("2_lfway")]
-position = Vector2(100, -25)
+position = Vector2(99, -32)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")

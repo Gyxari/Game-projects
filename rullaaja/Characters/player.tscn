@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cp80djabeiihv"]
+[gd_scene load_steps=38 format=3 uid="uid://cp80djabeiihv"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_ep4ws"]
 [ext_resource type="Texture2D" uid="uid://dtditbv215d65" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="1_srrcn"]
@@ -21,6 +21,14 @@ region = Rect2(128, 0, 64, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dgubn"]
 atlas = ExtResource("1_srrcn")
 region = Rect2(192, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6we0y"]
+atlas = ExtResource("4_a5yuj")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqedv"]
+atlas = ExtResource("4_a5yuj")
+region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tvry"]
 atlas = ExtResource("3_irjlk")
@@ -135,7 +143,18 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 8.0
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6we0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqedv")
+}],
+"loop": true,
+"name": &"jump_double",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -149,7 +168,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"jump_end",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -157,7 +176,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump_loop",
-"speed": 7.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -198,7 +217,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"jump_start",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -227,7 +246,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 8.0
+"speed": 10.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fk02w"]

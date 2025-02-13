@@ -29,8 +29,7 @@ func _physics_process(delta: float):
 		if is_on_floor():
 			jump()
 		elif not has_double_jumped:
-			velocity.y = double_jump_velocity
-			has_double_jumped = true
+			double_jump()
 
 
 	direction = Input.get_vector("left", "right", "up", "down")
@@ -64,6 +63,12 @@ func jump():
 	velocity.y = jump_velocity
 	animated_sprite.play("jump_start")
 	animation_locked = true
+
+func double_jump():
+	velocity.y = double_jump_velocity
+	animated_sprite.play("jump_double")
+	animation_locked = true
+	has_double_jumped = true
 
 func land():
 	animated_sprite.play("jump_end")
