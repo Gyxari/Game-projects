@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cp80djabeiihv"]
+[gd_scene load_steps=36 format=3 uid="uid://cp80djabeiihv"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_ep4ws"]
 [ext_resource type="Texture2D" uid="uid://dtditbv215d65" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="1_srrcn"]
@@ -33,6 +33,10 @@ region = Rect2(832, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8ul7"]
 atlas = ExtResource("3_irjlk")
 region = Rect2(896, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nq4n"]
+atlas = ExtResource("3_irjlk")
+region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_atu4y"]
 atlas = ExtResource("4_a5yuj")
@@ -149,6 +153,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_8nq4n")
+}],
+"loop": true,
+"name": &"jump_loop",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_atu4y")
 }, {
 "duration": 1.0,
@@ -226,12 +238,14 @@ height = 46.0
 script = ExtResource("1_ep4ws")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-32, -32)
 sprite_frames = SubResource("SpriteFrames_hhpuk")
 animation = &"idle"
 autoplay = "idle"
+centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 9)
 shape = SubResource("CapsuleShape2D_fk02w")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

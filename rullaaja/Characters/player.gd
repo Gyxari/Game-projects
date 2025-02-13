@@ -34,7 +34,8 @@ func _physics_process(delta: float):
 
 
 	direction = Input.get_vector("left", "right", "up", "down")
-	if direction:
+	
+	if direction.x != 0 && animated_sprite.animation != "jump_end":
 		velocity.x = direction.x * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
@@ -45,10 +46,13 @@ func _physics_process(delta: float):
 	
 func update_animation():
 	if not animation_locked:
-		if direction.x != 0:
-			animated_sprite.play("run")
+		if not is_on_floor():
+			animated_sprite.play("jump_loop")
 		else:
-			animated_sprite.play("idle")
+			if direction.x != 0:
+				animated_sprite.play("run")
+			else:
+				animated_sprite.play("idle")
 
 func update_facing_direction():
 	if direction.x > 0:
@@ -65,7 +69,6 @@ func land():
 	animated_sprite.play("jump_end")
 	animation_locked = true
 
-# Hyppyanimaatio stuck.
 func _on_animated_sprite_2d_animation_finished():
-	if(animated_sprite.animation == "jump-end"):
+	if(["jump_end", "jump_start", "jump_double"].has(animated_sprite.animation)):
 		animation_locked = false
